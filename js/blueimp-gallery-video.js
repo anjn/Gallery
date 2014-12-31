@@ -69,7 +69,7 @@
                 type = this.getItemProperty(obj, options.typeProperty),
                 title = this.getItemProperty(obj, options.titleProperty),
                 posterUrl = this.getItemProperty(obj, options.videoPosterProperty),
-                posterImage,
+                //posterImage,
                 sources = this.getItemProperty(
                     obj,
                     options.videoSourcesProperty
@@ -99,11 +99,11 @@
             }
             if (posterUrl) {
                 video.poster = posterUrl;
-                posterImage = this.imagePrototype.cloneNode(false);
-                $(posterImage).addClass(options.toggleClass);
-                posterImage.src = posterUrl;
-                posterImage.draggable = false;
-                videoContainerNode.appendChild(posterImage);
+                //posterImage = this.imagePrototype.cloneNode(false);
+                //$(posterImage).addClass(options.toggleClass);
+                //posterImage.src = posterUrl;
+                //posterImage.draggable = false;
+                //videoContainerNode.appendChild(posterImage);
             }
             playMediaControl = document.createElement('a');
             playMediaControl.setAttribute('target', '_blank');
@@ -148,6 +148,14 @@
                         isLoading = true;
                         videoContainer.addClass(that.options.videoLoadingClass);
                         that.playingVideo = video;
+                    })
+                    .on('click', function () {
+                      if (video.paused) {
+                        video.play();
+                      } else {
+                        video.pause();
+                      }
+                      return false;
                     });
                 $(playMediaControl).on('click', function (event) {
                     that.preventDefault(event);

@@ -62,7 +62,8 @@
   display: none;
 }
 .blueimp-gallery > .slides > .slide > .video-content > video {
-  display: none;
+  display: block;
+  cursor: pointer;
 }
 .blueimp-gallery > .slides > .slide > .video-playing > video {
   display: block;
