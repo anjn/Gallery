@@ -39,7 +39,9 @@
         // The list object property (or data attribute) for the video poster URL:
         videoPosterProperty: 'poster',
         // The list object property (or data attribute) for the video sources array:
-        videoSourcesProperty: 'sources'
+        videoSourcesProperty: 'sources',
+        // The value of 'preload' attribute for video elements
+        videoPreload: 'none'
     });
 
     var handleSlide = Gallery.prototype.handleSlide;
@@ -111,6 +113,7 @@
             playMediaControl.href = url;
             if (video.src) {
                 video.controls = true;
+                video.setAttribute('preload', options.videoPreload);
                 (videoInterface || $(video))
                     .on('error', function () {
                         that.setTimeout(callback, errorArgs);
